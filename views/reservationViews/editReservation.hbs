@@ -1,0 +1,56 @@
+<!-- views/reservationViews/editReservation.hbs -->
+
+
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Edit Reservation</title>
+    <!-- Include any necessary CSS or Bootstrap -->
+  </head>
+
+  <body>
+    <div class='container'>
+      <h1>Edit Reservation</h1>
+      <!-- Form for editing an existing reservation -->
+      <form action='/reservations/{{reservation._id}}/edit' method='POST'>
+        <div class='form-group'>
+          <label for='customerName'>Customer Name</label>
+          <input
+            type='text'
+            class='form-control'
+            id='customerName'
+            name='customerName'
+            value='{{reservation.customerName}}'
+            required
+          />
+        </div>
+        <div class='form-group'>
+          <label for='reservationDate'>Reservation Date</label>
+          <input
+            type='date'
+            class='form-control'
+            id='reservationDate'
+            name='reservationDate'
+            value='{{reservation.reservationDate}}'
+            required
+          />
+        </div>
+        <div class='form-group'>
+          <label for='tableNumber'>Table Number</label>
+          <input
+            type='number'
+            class='form-control'
+            id='tableNumber'
+            name='tableNumber'
+            value='{{reservation.tableNumber}}'
+            required
+          />
+        </div>
+        <button type='submit' class='btn btn-primary'>Save Changes</button>
+      </form>
+    </div>
+  </body>
+
+</html>

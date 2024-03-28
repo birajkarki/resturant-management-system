@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Management System</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .jumbotron {
+            background-image: url('https://source.unsplash.com/featured/?restaurant'); /* Image from Unsplash */
+            background-size: cover;
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .lead {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #fff;
+        }
+        .btn-primary {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <!-- Include shared header -->
+    {{> header}}
+    
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to Restaurant Management System</h1>
+            <p class="lead">Your one-stop solution for managing reservations and menu items.</p>
+            <!-- Button to navigate to createReservation page -->
+            <!-- Add more content here -->
+            <a href="/signin" class="btn btn-primary btn-lg">Login in</a>
+        </div>
+    </div>
+
+    <!-- Include shared footer -->
+    {{> footer}}
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

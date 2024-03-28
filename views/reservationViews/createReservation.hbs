@@ -1,0 +1,90 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Create Reservation</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel='stylesheet'
+      href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
+    />
+    <!-- Custom CSS -->
+    <style>
+      /* Custom styles */ body { background-color: #f8f9fa; font-family: Arial,
+      sans-serif; } .container { max-width: 500px; margin: 0 auto; padding:
+      20px; border-radius: 10px; background-color: #fff; box-shadow: 0 0 10px
+      rgba(0, 0, 0, 0.1); } h1 { text-align: center; margin-bottom: 30px; color:
+      #dc3545; } label { font-weight: bold; } .form-control { border-radius:
+      5px; box-shadow: none; } .btn-primary { background-color: #dc3545;
+      border-color: #dc3545; width: 100%; margin-top: 20px; } .btn-primary:hover
+      { background-color: #c82333; border-color: #bd2130; }
+    </style>
+  </head>
+  <body>
+    <div class='container mt-5'>
+      <h1>Create Reservation</h1>
+      <!-- Form for creating a new reservation -->
+      <form action='/reservations/create' method='POST'>
+        <div class='form-group'>
+          <label for='customerName'>Customer Name</label>
+          <input
+            type='text'
+            class='form-control'
+            id='customerName'
+            name='customerName'
+            required
+          />
+        </div>
+        <div class='form-group'>
+          <label for='reservationDate'>Reservation Date</label>
+          <input
+            type='date'
+            class='form-control'
+            id='reservationDate'
+            name='reservationDate'
+            required
+          />
+        </div>
+        <div class='form-group'>
+          <label for='numberOfPeople'>Number of People</label>
+          <input
+            type='number'
+            class='form-control'
+            id='numberOfPeople'
+            name='numberOfPeople'
+            required
+          />
+        </div>
+        <div class='form-group'>
+          <label for='tableNumber'>Table Number</label>
+          <input
+            type='number'
+            class='form-control'
+            id='tableNumber'
+            name='tableNumber'
+            required
+          />
+        </div>
+        <div class='form-group'>
+          <label for='phoneNumber'>Phone Number</label>
+          <input
+            type='text'
+            class='form-control'
+            id='phoneNumber'
+            name='phoneNumber'
+            required
+          />
+        </div>
+        <button type='submit' class='btn btn-primary'>Create Reservation</button>
+      </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js'></script>
+    <script
+      src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js'
+    ></script>
+    <script
+      src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'
+    ></script>
+  </body>
+</html>

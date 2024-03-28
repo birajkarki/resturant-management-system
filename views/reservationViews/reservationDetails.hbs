@@ -1,0 +1,31 @@
+<!-- views/reservationViews/reservationDetails.hbs -->
+
+
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Reservation Details</title>
+    <!-- Include any necessary CSS or Bootstrap -->
+  </head>
+
+  <body>
+    <div class='container'>
+      <h1>Reservation Details</h1>
+      <div class='card'>
+        <div class='card-body'>
+          <h5 class='card-title'>Customer Name:
+            {{reservation.customerName}}</h5>
+          <p class='card-text'>Reservation Date:
+            {{reservation.reservationDate}}</p>
+          <p class='card-text'>Table Number: {{reservation.tableNumber}}</p>
+          <!-- Add more reservation details as needed -->
+        </div>
+      </div>
+      <a href='/reservations' class='btn btn-primary mt-3'>Back to Reservation
+        List</a>
+    </div>
+  </body>
+
+</html>

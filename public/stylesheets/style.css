@@ -1,0 +1,89 @@
+/* Reset default browser styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply custom styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Add this CSS to your style.css file or include it in your HTML file */
+
+/* Navbar brand */
+.navbar-brand {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-weight: bold; /* Optionally, make the font bold */
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+  font-size: 1rem; /* Adjust the font size as needed */
+  margin-right: 10px; /* Add some spacing between links */
+  color: #333; /* Adjust the color of the links */
+}
+
+/* Active link */
+.navbar-nav .nav-link.active {
+  color: #007bff; /* Change the color of the active link */
+}
+
+/* Navbar toggler icon */
+.navbar-toggler-icon {
+  background-color: #333; /* Change the color of the toggler icon */
+}
+
+/* Navbar background */
+.navbar {
+  background-color: #f8f9fa; /* Change the background color of the navbar */
+}
+
+/* Navbar border */
+.navbar {
+  border-bottom: 1px solid #dee2e6; /* Add a border at the bottom of the navbar */
+}
+
+/* Container */
+.container {
+  max-width: 1200px; /* Adjust the maximum width of the container */
+}
+
+/* Adjust the spacing between the navbar items */
+.navbar-nav {
+  margin-right: -10px;
+}
+
+/* Make the navbar items aligned to the right */
+.navbar-nav {
+  margin-left: auto;
+}
+
+/* Add some padding to the header */
+header {
+  padding: 20px 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40; /* Adjust the background color as needed */
+  color: #ffffff; /* Adjust the text color as needed */
+  text-align: center;
+  padding: 20px 0; /* Adjust the padding as needed */
+}
