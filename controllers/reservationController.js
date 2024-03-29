@@ -10,17 +10,33 @@ exports.createReservation = async (req, res) => {
       phoneNumber,
       tableNumber,
     } = req.body
+    // Log the user ID to the console
+    console.log('User ID:', req.user._id)
+    console.log('User ID (alternative):', req.user.id)
+    // Ensure that all required fields are provided
+    if (
+      !customerName ||
+      !reservationDate ||
+      !numberOfPeople ||
+      !phoneNumber ||
+      !tableNumber
+    ) {
+      return res.status(400).send('All fields are required')
+    }
 
+    // Create the reservation object
     const reservation = new Reservation({
       customerName,
       reservationDate,
       numberOfPeople,
       phoneNumber,
       tableNumber,
+      createdBy: req.user._id || req.user.id, // Use whichever works for you
     })
 
+    // Save the reservation to the database
     await reservation.save()
-    res.status(201).send('Reservation created successfully')
+    res.redirect('/dashboard')
   } catch (error) {
     console.error('Error creating reservation:', error.message)
     res.status(500).send('Error creating reservation')
@@ -77,7 +93,7 @@ exports.deleteReservationById = async (req, res) => {
     if (!reservation) {
       return res.status(404).send('Reservation not found')
     }
-    res.status(200).send('Reservation deleted successfully')
+    res.redirect('/dashboard')
   } catch (error) {
     console.error('Error deleting reservation:', error.message)
     res.status(500).send('Error deleting reservation')

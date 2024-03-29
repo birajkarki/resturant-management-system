@@ -13,6 +13,7 @@ const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const dashboardRouter = require('./routes/dashboard')
 const reservationRouter = require('./routes/reservationRoutes')
+const order = require('./routes/order') // Add order routes
 
 const dotenv = require('dotenv')
 const app = express()
@@ -31,7 +32,7 @@ app.set('view engine', 'hbs')
 // Register Handlebars partials and layouts
 hbs.registerPartials(path.join(__dirname, 'views', 'partials'))
 hbs.registerPartials(path.join(__dirname, 'views', 'layouts'))
-hbs.registerPartials(path.join(__dirname, 'views', 'reservationViews'))
+hbs.registerPartials(path.join(__dirname, 'views', 'orderViews')) // Register order views directory
 
 app.use(logger('dev'))
 app.use(express.json())
@@ -48,7 +49,7 @@ app.use(
   })
 )
 
-// Initialize Passport
+// Initialize Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
 
@@ -58,6 +59,7 @@ app.use('/users', usersRouter)
 app.use('/auth', authRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/reservations', reservationRouter) // Updated route for reservations
+app.use('/order', order) // Use order routes
 
 // Middleware to protect routes that require authentication
 app.use('/protected-route', isAuthenticated, (req, res, next) => {

@@ -12,7 +12,7 @@ router.post('/register', async (req, res) => {
       password: hashedPassword,
     })
     await user.save()
-    res.status(201).send('User registered successfully')
+    res.redirect('/dashboard')
   } catch (error) {
     if (error.code === 11000 && error.keyPattern.email) {
       // Duplicate email error
@@ -48,6 +48,11 @@ router.post('/login', async (req, res) => {
   } catch (error) {
     res.status(500).send('Error logging in')
   }
+})
+router.post('/logout', (req, res) => {
+  // Clear the token or session data
+  // Redirect user to login page or any other appropriate page
+  res.redirect('/signin') // Redirect to login page
 })
 
 module.exports = router

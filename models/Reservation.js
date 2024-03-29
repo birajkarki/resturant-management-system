@@ -1,3 +1,4 @@
+// models/Reservation.js
 const mongoose = require('mongoose')
 
 const reservationSchema = new mongoose.Schema(
@@ -22,12 +23,11 @@ const reservationSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // user: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: 'User',
-    //   required: true,
-    // },
-    // Add more fields as needed
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User', // Reference to the User model
+      required: true,
+    },
   },
   { timestamps: true }
 )

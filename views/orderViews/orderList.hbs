@@ -1,0 +1,15 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Order List</title>
+  </head>
+  <body>
+    <h1>Order List</h1>
+    <ul>
+      {{#each orders}}
+        <li>{{this.orderId}} - {{this.customerName}} - {{this.totalPrice}}</li>
+      {{/each}}
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Create Reservation</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel='stylesheet'
+      href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
+    />
+    <!-- Custom CSS -->
+    <style>
+      /* Custom styles */ body { background-color: #f8f9fa; font-family: Arial,
+      sans-serif; } .container { max-width: 500px; margin: 0 auto; padding:
+      20px; border-radius: 10px; background-color: #fff; box-shadow: 0 0 10px
+      rgba(0, 0, 0, 0.1); } h1 { text-align: center; margin-bottom: 30px; color:
+      #dc3545; } label { font-weight: bold; } .form-control { border-radius:
+      5px; box-shadow: none; } .btn-primary { background-color: #dc3545;
+      border-color: #dc3545; width: 100%; margin-top: 20px; } .btn-primary:hover
+      { background-color: #c82333; border-color: #bd2130; }
+    </style>
+  </head>
+  <body>
+    <h1>Create New Order</h1>
+    <form action='/orders/' method='post'>
+      
+      <label for='customerName'>Customer Name:</label>
+      <input type='text' id='customerName' name='customerName' required /><br
+      /><br />
+
+      <label for='item1'>Item 1      <input type='text' id='orderId' name='orderId' required /><br /><br />
+:</label>
+      <input
+        type='text'
+        id='item1'
+        name='items[0][itemName]'
+        placeholder='Item Name'
+        required
+      />
+      <input
+        type='number'
+        id='quantity1'
+        name='items[0][quantity]'
+        placeholder='Quantity'
+        required
+      />
+      <input
+        type='number'
+        id='price1'
+        name='items[0][price]'
+        placeholder='Price'
+        required
+      /><br /><br />
+
+      <!-- Add more item fields as needed -->
+
+      <label for='totalPrice'>Total Price:</label>
+      <input type='number' id='totalPrice' name='totalPrice' required /><br
+      /><br />
+
+      <button type='submit' class='btn btn-primary'>Create Reservation</button>
+      </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js'></script>
+    <script
+      src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js'
+    ></script>
+    <script
+      src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'
+    ></script>
+  </body>
+</html>
