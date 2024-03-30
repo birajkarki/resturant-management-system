@@ -34,7 +34,7 @@ router.get('/:id', async (req, res) => {
 router.get('/:id/edit', async (req, res) => {
   try {
     const order = await orderController.getOrderById(req.params.id)
-    res.render('orderEditForm', { order }) // Assuming you have an orderEditForm.hbs file in your views directory
+    res.render('orderEditForm', { order }) // Assuming you have 
   } catch (error) {
     res.status(500).send(error.message)
   }

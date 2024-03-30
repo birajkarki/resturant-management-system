@@ -2,8 +2,10 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken') // Import JWT library
+const passport = require('passport') // Import Passport for GitHub authentication
 const User = require('../models/User')
 
+// Registration route
 router.post('/register', async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
@@ -26,6 +28,7 @@ router.post('/register', async (req, res) => {
   }
 })
 
+// Login route
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email })
@@ -49,10 +52,25 @@ router.post('/login', async (req, res) => {
     res.status(500).send('Error logging in')
   }
 })
+
+// Logout route
 router.post('/logout', (req, res) => {
   // Clear the token or session data
   // Redirect user to login page or any other appropriate page
   res.redirect('/signin') // Redirect to login page
 })
+
+// GitHub authentication route
+router.get('/github', passport.authenticate('github'))
+
+// GitHub authentication callback route
+router.get(
+  '/github/callback',
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  (req, res) => {
+    // Successful authentication, redirect to dashboard or any other route
+    res.redirect('/dashboard')
+  }
+)
 
 module.exports = router

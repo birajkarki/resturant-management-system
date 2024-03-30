@@ -1,8 +1,10 @@
 const passport = require('passport')
+const GitHubStrategy = require('passport-github2').Strategy
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcryptjs')
 const User = require('../models/User')
 
+// Local strategy for email/password authentication
 passport.use(
   new LocalStrategy(
     { usernameField: 'email' },
@@ -24,6 +26,34 @@ passport.use(
   )
 )
 
+// GitHub strategy for GitHub authentication
+passport.use(
+  new GitHubStrategy(
+    {
+      clientID: 'bb7c1d828bcb9f8594e4',
+      clientSecret: 'c650e87f68e2d654a5b9c93f0154d4f410d5082f',
+      callbackURL: 'http://localhost:3000/auth/github/callback',
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      try {
+        let user = await User.findOne({ githubId: profile.id })
+        if (!user) {
+          user = new User({
+            githubId: profile.id,
+            username: profile.username,
+            email: profile.emails[0].value, // Assuming email is available
+          })
+          await user.save()
+        }
+        done(null, user)
+      } catch (error) {
+        done(error)
+      }
+    }
+  )
+)
+
+// Serialize and deserialize user
 passport.serializeUser((user, done) => {
   done(null, user.id)
 })
