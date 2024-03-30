@@ -54,10 +54,13 @@ router.post('/login', async (req, res) => {
 })
 
 // Logout route
-router.post('/logout', (req, res) => {
-  // Clear the token or session data
-  // Redirect user to login page or any other appropriate page
-  res.redirect('/signin') // Redirect to login page
+router.post('/logout', function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err)
+    }
+    res.redirect('/signin')
+  })
 })
 
 // GitHub authentication route

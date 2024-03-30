@@ -15,7 +15,7 @@ router.get('/signin', isAuthenticated, (req, res) => {
   if (req.isAuthenticated()) {
     res.redirect('/dashboard')
   } else {
-    res.render('/signin')
+    res.render('signin')
   }
 })
 
@@ -26,7 +26,7 @@ router.get('/signup', isAuthenticated, (req, res) => {
   if (req.isAuthenticated()) {
     res.redirect('/dashboard')
   } else {
-    res.render('/signup')
+    res.render('signup')
   }
 })
 
